@@ -24,7 +24,7 @@ Feature: Test student functionality
     And the valid token is provided
     When I send GET request
     Then verify status code is 200
-    Then verify group response contains expected text
+    Then verify response contains expected text
 
   Scenario: Successfully delete a student by ID
     Given the base url is "https://backend.studymate.us/api/students"
