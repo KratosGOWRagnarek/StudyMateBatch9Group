@@ -56,7 +56,7 @@ public class Student_api_steps extends ApiBase {
 
     }
 
-    @When("i send a POST request")
+    @When("I send a POST request")
     public void i_send_a_post_request() {
         response = request.post();
 
@@ -75,5 +75,25 @@ public class Student_api_steps extends ApiBase {
         System.out.println("Status Code: " + response.getStatusCode());
         System.out.println("Body:" + response.getBody().asPrettyString());
     }
+    @When("I send GET request")
+    public void i_send_get_request() {
+        response = request.get();
 
+    }
+
+    @Then("verify group response contains expected text")
+    public void verify_group_response_contains_expected_text() {
+        String responseBody = response.asPrettyString();
+
+        System.out.println("Status Code: " + response.getStatusCode());
+        System.out.println("Body:" + response.getBody().asPrettyString());
+
+        Assert.assertTrue(responseBody.contains("objects"));
+
+    }
+
+    @When("I send DELETE request")
+    public void i_send_delete_request() {
+        response = request.delete();
+    }
 }
